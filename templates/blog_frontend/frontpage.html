@@ -1,0 +1,31 @@
+{% extends 'blog_frontend/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post block">
+            <h2 class="subtitle">{{ post.title }}</h2>
+
+            <small>Posted at {{ post.date_added }}</small>
+
+            <p>{{ post.intro }}</p>
+
+            <a href="{% url 'post_detail' post.slug %}">Read more</a><br><br>
+
+            <a href="{% url ''%}">
+        </div>
+    {% endfor %}
+
+<div class="pagination justify-content-center">
+    {% if posts.has_previous %}
+    <a href="{% url 'frontpage' %}?page={{posts.previous_page_number}}">PREVIOUS</a>
+    {% endif %}
+
+<span class="mx-4">
+    page{{posts.number}} of {{posts.paginator.num_pages}}
+</span>
+        {% if posts.has_next %}
+        <a href="{% url 'frontpage' %}?page={{posts.next_page_number}}">NEXT</a>
+        {% endif %}
+
+</div>
+{% endblock %}

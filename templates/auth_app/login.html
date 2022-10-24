@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>LOGIN FORM</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container jumbotron">
+    <form method="post">
+        {% csrf_token %}
+        <label for="un"><b>ENTER USERNAME</b></label>
+        <input type="text" id="un" name="u" class="form-control" autocomplete="off">
+        <br><br>
+
+        <label for="pw"><b>ENTER PASSWORD</b></label>
+        <input type="text" id="pw" name="p" class="form-control" autocomplete="off">
+        <br><br>
+
+        <input type="submit" value="LOGIN" class="btn btn-success btn-lg">
+
+    </div>
+    </form>
+{% endblock %}
